@@ -7,12 +7,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-weight: 800;
 }
 
 .Room__status {
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  border: none;
   background-color: grey;
 }
 
