@@ -4,9 +4,9 @@ import './Room.css';
 export default function Room({ text, description, isClean, toggleStatus }) {
   const [isDescriptionVisible, setIsDescriptionVisible] = useState(false);
 
-  const statusClassName = `Room__status Room__status--${
-    isClean ? 'clean' : 'dirty'
-  }`;
+  const statusClassName = isClean
+    ? 'Room__status Room__status--clean'
+    : 'Room__status Room__status--dirty';
   return (
     <section onClick={toggleDescription} className="Room">
       <header className="Room__header">

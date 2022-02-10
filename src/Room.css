@@ -14,8 +14,8 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: none;
-  background-color: grey;
+  box-shadow: 1px 1px 2px grey;
+  border: black;
 }
 
 .Room__status--clean {
