@@ -5,14 +5,12 @@ export default function Navigation({ currentPage, setCurrentPage }) {
     <NavigationContainer>
       <NavigationButton
         onClick={() => setCurrentPage('Rooms')}
-        buttonName="Rooms"
         currentPage={currentPage}
       >
         Rooms
       </NavigationButton>
       <NavigationButton
         onClick={() => setCurrentPage('Flatmates')}
-        buttonName="Flatmates"
         currentPage={currentPage}
       >
         Flatmates
@@ -30,6 +28,6 @@ const NavigationButton = styled.button`
   padding: 15px;
   border: none;
   font-weight: 600;
-  background-color: ${props =>
-    props.buttonName === props.currentPage ? 'cornflowerblue' : 'steelblue'};
+  background-color: ${({ children, currentPage }) =>
+    children === currentPage ? 'cornflowerblue' : 'steelblue'};
 `;

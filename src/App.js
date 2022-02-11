@@ -29,7 +29,7 @@ export default function App() {
 
   return (
     <AppGrid>
-      <Header>{currentPage}</Header>
+      <Header currentPage={currentPage} />
       <Page>
         {currentPage === 'Rooms' &&
           rooms.map(({ text, description, isClean }, index) => (

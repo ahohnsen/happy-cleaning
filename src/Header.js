@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export default function Header({ children }) {
-  return <Heading>{children}</Heading>;
+export default function Header({ currentPage }) {
+  return <Heading>{currentPage}</Heading>;
 }
 
 const Heading = styled.h1`
