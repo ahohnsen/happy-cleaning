@@ -30,23 +30,23 @@ export default function Flatmates() {
   return (
     <section>
       {hasError && <p>Error: could not load characters.</p>}
-      <FlatmateList>
-        {flatmates.map(({ name, status, id }) => (
-          <FlatmateListItem key={id} name={name} status={status}>
+      <FlatmatesContainer>
+        {flatmates.map(({ name, id }) => (
+          <FlatmatesItem key={id} name={name}>
             {name}
-          </FlatmateListItem>
+          </FlatmatesItem>
         ))}
-      </FlatmateList>
+      </FlatmatesContainer>
     </section>
   );
 }
 
-const FlatmateList = styled.ul`
+const FlatmatesContainer = styled.ul`
   display: grid;
   gap: 15px;
 `;
 
-const FlatmateListItem = styled.li`
+const FlatmatesItem = styled.li`
   padding: 13px 12px;
   border: 1px solid #ddd;
   list-style: none;
