@@ -1,6 +1,6 @@
 import { useImmer } from 'use-immer';
 import { useState } from 'react';
-import './App.css';
+import styled from 'styled-components';
 import Room from './Room.js';
 import Header from './Header.js';
 import Flatmates from './Flatmates.js';
@@ -28,10 +28,9 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('Rooms');
 
   return (
-    <div className="App">
-      {' '}
-      <Header>{currentPage}</Header>
-      <main>
+    <AppGrid>
+      <Header currentPage={currentPage} />
+      <Page>
         {currentPage === 'Rooms' &&
           rooms.map(({ text, description, isClean }, index) => (
             <Room
@@ -48,8 +47,18 @@ export default function App() {
             />
           ))}
         {currentPage === 'Flatmates' && <Flatmates />}
-      </main>
+      </Page>
       <Navigation currentPage={currentPage} setCurrentPage={setCurrentPage} />
-    </div>
+    </AppGrid>
   );
 }
+
+const Page = styled.main`
+  padding: 0 20px;
+`;
+
+const AppGrid = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr 48px;
+  height: 100vh;
+`;

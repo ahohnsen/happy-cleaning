@@ -1,28 +1,33 @@
-import './Navigation.css';
+import styled from 'styled-components';
 
 export default function Navigation({ currentPage, setCurrentPage }) {
   return (
-    <div className="Navigation">
-      <button
+    <NavigationContainer>
+      <NavigationButton
         onClick={() => setCurrentPage('Rooms')}
-        className={
-          currentPage === 'Rooms'
-            ? 'Navigation__button Navigation__button--active'
-            : 'Navigation__button'
-        }
+        currentPage={currentPage}
       >
         Rooms
-      </button>
-      <button
+      </NavigationButton>
+      <NavigationButton
         onClick={() => setCurrentPage('Flatmates')}
-        className={
-          currentPage === 'Flatmates'
-            ? 'Navigation__button Navigation__button--active'
-            : 'Navigation__button'
-        }
+        currentPage={currentPage}
       >
         Flatmates
-      </button>
-    </div>
+      </NavigationButton>
+    </NavigationContainer>
   );
 }
+
+const NavigationContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+const NavigationButton = styled.button`
+  padding: 15px;
+  border: none;
+  font-weight: 600;
+  background-color: ${({ children, currentPage }) =>
+    children === currentPage ? 'cornflowerblue' : 'steelblue'};
+`;

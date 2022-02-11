@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Flatmates.css';
+import styled from 'styled-components';
 
 export default function Flatmates() {
   const [flatmates, setFlatmates] = useState([]);
@@ -30,13 +30,25 @@ export default function Flatmates() {
   return (
     <section>
       {hasError && <p>Error: could not load characters.</p>}
-      <ul>
+      <FlatmateList>
         {flatmates.map(({ name, status, id }) => (
-          <li key={id} name={name} status={status}>
+          <FlatmateListItem key={id} name={name} status={status}>
             {name}
-          </li>
+          </FlatmateListItem>
         ))}
-      </ul>
+      </FlatmateList>
     </section>
   );
 }
+
+const FlatmateList = styled.ul`
+  display: grid;
+  gap: 15px;
+`;
+
+const FlatmateListItem = styled.li`
+  padding: 13px 12px;
+  border: 1px solid #ddd;
+  list-style: none;
+  font-weight: 600;
+`;
